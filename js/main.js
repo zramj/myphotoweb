@@ -12,7 +12,7 @@ $(function(){
         //設定 Ｍasonry 選項
         $container.masonry({
             columnWidth: 230,
-            gutter: 10,
+            gutter: 20,
             itemSelector: '.gallery-item'
         });
 
@@ -163,6 +163,39 @@ $(function(){
             return direction;
         }
     });
+
+    // Resize page header
+    $('.page-header').each(function () {
+        var $header = $(this),
+            headerHeight = $header.outerHeight(),
+            headerPaddingTop = parseInt($header.css('paddingTop'), 10),
+            headerPaddingBottom = parseInt($header.css('paddingBottom'), 10);
+        $(window).on('scroll', $.throttle(1000 / 60, function () {
+            var scroll = $(this).scrollTop(),
+                styles = {};
+            if (scroll > 0) {
+                if (scroll < headerHeight) {
+                    styles = {
+                        paddingTop: headerPaddingTop - scroll / 2,
+                        paddingBottom: headerPaddingBottom - scroll / 2
+                    };
+                } else {
+                    styles = {
+                        paddingTop: 0,
+                        paddingBottom: 0
+                    };
+                }
+            } else {
+                styles = {
+                    paddingTop: '',
+                    paddingBottom: ''
+                }
+            }
+            $header.css(styles);
+        }));
+    }); 
+
+
 });      
 
 //請求 Json 檔案 - 基礎版

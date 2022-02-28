@@ -2,14 +2,19 @@
 
 /* Base */
 html { font-family: "Helvetica Neue", "Arial", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; font-size: 14px; line-height: 1.5; }
-body { background-color: rgb(245, 245, 245); color: rgb(0, 0, 0); }
+body { 
+    background: -webkit-linear-gradient(180deg, rgb(97, 134, 183), rgb(130, 105, 139));
+    background: linear-gradient(180deg, rgb(97, 134, 183), rgb(130, 105, 139));
+    background-size: cover;
+    color: rgb(0, 0, 0); 
+}
 h1 { font-size: 100%; margin: 0; }
 img { vertical-align: middle; }
 
 /* Page header */
 .page-header {
-    background-color: rgb(255, 255, 255);
-    border-bottom: 1px solid rgb(230, 230, 230);
+    background-color: #6283b8;
+    border-bottom: 1px solid #839cc3;
     padding: 32px 0;
     position: fixed;
     width: 100%;
@@ -32,8 +37,9 @@ img { vertical-align: middle; }
 
 .page-main {
     margin: auto;
-    padding: 103px 10px;
-    width: 950px;
+    padding: 130px 10px;
+    width: 980px;
+    min-height: 1000px;
 }
 
 
@@ -48,20 +54,23 @@ img { vertical-align: middle; }
 
 .gallery-item {
     list-style: none;
-    margin-top: 10px;
+    margin-top: 20px;
 }
 .gallery-item.is-loading {
     opacity: 0;
 }
 .gallery-item a {
     display: block;
-    
+    border-radius: 5px;
     overflow: hidden;
     position: relative;
 }
+.gallery-item a:hover img {
+    filter: blur(5px);
+}
 .gallery-item .caption {
-    background-color: rgb(231, 31, 25);
-    background-color: rgba(231, 31, 25, 0.8);
+    /* background-color: rgb(231, 31, 25); */
+    background-color: rgb(101 131 179 / 60%);
     color: rgb(255, 255, 255);
     padding: 10px;
     text-align: center;
@@ -81,10 +90,12 @@ img { vertical-align: middle; }
     display: inline-block;
     height: 100%;
     vertical-align: middle;
+    /* filter: blur(20px); */
 }
 .gallery-item .caption > .inner {
     display: inline-block;
     vertical-align: middle;
+    text-shadow: 2px 2px 2px #676767;
 }
 .gallery-item .title {
     display: block;
@@ -104,6 +115,7 @@ img { vertical-align: middle; }
     margin-left: auto;
 }
 .filter-form label {
+    color: #fff;
     cursor: pointer;
     display: inline-block;
     font-weight: bold;
@@ -130,12 +142,18 @@ img { vertical-align: middle; }
 }
 
 .load-more {
-    background-color: rgb(255, 255, 255);
-    border: 1px solid rgb(230, 230, 230);
+    background-color: rgb(255 255 255 / 30%);
+    border: 1px solid rgb(191 181 197);
     display: block;
     padding: 1em 0;
     width: 100%;
     margin-top: 10px;
+    border-radius: 5px;
+    transition: all .2s;
+}
+.load-more:hover {
+    color: #fff;
+    background-color: #8e799f8f;
 }
 
 /* jQuery UI helper */
