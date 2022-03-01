@@ -1,11 +1,30 @@
 @charset "UTF-8";
 
+@font-face {
+    font-family: 'Verlag';
+    src:  url(../fonts/Verlag-Book.otf) format("opentype");
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Verlag';
+    src:  url(../fonts/Verlag-Black.otf) format("opentype");
+    font-weight: bolder;
+}
+@font-face {
+    font-family: Verlag;
+    src:  url(../fonts/Verlag-Bold.otf) format("opentype");
+    font-weight: bold;
+}
+
+
 /* Base */
-html { font-family: "Helvetica Neue", "Arial", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif; font-size: 14px; line-height: 1.5; }
+html { 
+    /* font-family: "Helvetica Neue", "Arial", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;  */
+    font-family: 'Verlag', "sans-serif", "微軟正黑體", "蘋果儷中黑", "小塚ゴシック Pro", "ヒラギノ角ゴ", "Noto Sans", "新細明體";
+    font-size: 14px; 
+    line-height: 1.5; }
 body { 
-    background: -webkit-linear-gradient(180deg, rgb(97, 134, 183), rgb(130, 105, 139));
-    background: linear-gradient(180deg, rgb(97, 134, 183), rgb(130, 105, 139));
-    background-size: cover;
+    background-color: #222c3d;
     color: rgb(0, 0, 0); 
 }
 h1 { font-size: 100%; margin: 0; }
@@ -13,8 +32,8 @@ img { vertical-align: middle; }
 
 /* Page header */
 .page-header {
-    background-color: #6283b8;
-    border-bottom: 1px solid #839cc3;
+    background-color: #111925;
+    border-bottom: 1px solid #3b3c3d;
     padding: 32px 0;
     position: fixed;
     width: 100%;
@@ -39,7 +58,6 @@ img { vertical-align: middle; }
     margin: auto;
     padding: 130px 10px;
     width: 980px;
-    min-height: 1000px;
 }
 
 
@@ -69,7 +87,6 @@ img { vertical-align: middle; }
     filter: blur(5px);
 }
 .gallery-item .caption {
-    /* background-color: rgb(231, 31, 25); */
     background-color: rgb(101 131 179 / 60%);
     color: rgb(255, 255, 255);
     padding: 10px;
@@ -90,12 +107,11 @@ img { vertical-align: middle; }
     display: inline-block;
     height: 100%;
     vertical-align: middle;
-    /* filter: blur(20px); */
 }
 .gallery-item .caption > .inner {
     display: inline-block;
     vertical-align: middle;
-    text-shadow: 2px 2px 2px #676767;
+    text-shadow: 2px 2px 5px #676767;
 }
 .gallery-item .title {
     display: block;
@@ -114,31 +130,26 @@ img { vertical-align: middle; }
     display: flex;
     margin-left: auto;
 }
+.filter-form input[type="radio"] {
+    display: none;
+}
 .filter-form label {
-    color: #fff;
+    color: #eef1f5;
     cursor: pointer;
     display: inline-block;
-    font-weight: bold;
-    margin-left: 1em;
-    padding: 0 0.25em;
+    font-weight: bolder;
+    margin: 0 1em;
+    padding: 0.5em 0.25em;
+    letter-spacing: 1px;
     -webkit-user-select: none;
        -moz-user-select: none;
         -ms-user-select: none;
+    transition: all .3s;
 }
-.filter-form label.ui-state-focus {
-    outline: 1px dotted;
-}
-.filter-form label .ui-icon {
-    background: url(../img/sprites.png) no-repeat 0 0;
-    display: inline-block;
-    height: 17px;
-    margin-right: 0.5em;
-    margin-top: 2px;
-    width: 17px;
-    vertical-align: top;
-}
-.filter-form label.ui-state-active .ui-icon {
-    background-position: -20px 0;
+.filter-form label:hover,
+.filter-form input[type="radio"]:checked + label {
+    color: #b8826e;
+    border-bottom: 3px solid #795548;
 }
 
 .load-more {
@@ -150,10 +161,12 @@ img { vertical-align: middle; }
     margin-top: 10px;
     border-radius: 5px;
     transition: all .2s;
+    margin-top: 3em;
 }
 .load-more:hover {
     color: #fff;
-    background-color: #8e799f8f;
+    background-color: #283141;
+    border-color: #4f5a6f;
 }
 
 /* jQuery UI helper */

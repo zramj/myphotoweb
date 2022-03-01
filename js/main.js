@@ -17,11 +17,11 @@ $(function(){
         });
 
         // jQuery UI Button
-        $('.filter-form input[type="radio"]').button({
-            icons: {
-                primary: 'icon-radio'
-            }
-        });
+        // $('.filter-form input[type="radio"]').button({
+        //     icons: {
+        //         primary: 'icon-radio'
+        //     }
+        // });
         
 
         // 取得Json 並執行 initGallery 函式
